@@ -1,0 +1,30 @@
+<h1>Child component</h1>
+{{message}}
+
+<input name="message" type="text" (keyup)="onClick()" [(ngModel)]="message"/>
+
+Student Registration:-
+====================================
+
+<button class="btn btn-primary">asdfadsf</button>
+<form #register="ngForm" (ngSubmit)="onSubmit(register)">
+  <div class="form-group">
+   <label for="name">Name</label>
+   <input type="text" class="form-control" name="name" [ngModel]="name" required/>
+  </div>
+  <div class="form-group">
+    <label for="Emal">Email</label>
+    <input type="email" class="form-control" name="email" [ngModel]="email" required email/>
+    <div *ngIf="register.control.controls.email && register.control.controls.email.touched && register.control.controls.email.invalid">Please enter valid email address</div>
+   </div>
+   <div class="form-group">
+    <label for="Password">Password</label>
+    <input type="password" class="form-control" name="password" [ngModel]="password" required/>
+   </div>
+   <div class="form-group">
+    <label for="Password">Confirm Password</label>
+    <input type="password" class="form-control" name="cpassword" [ngModel]="cpassword" required/>
+   </div>
+   
+   <input type="submit" value="Submit" name="submit" [disabled]="register.invalid"/>
+</form>
