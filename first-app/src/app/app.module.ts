@@ -7,6 +7,9 @@ import { ParentComponent } from './InputDecorator/parent.component';
 import { ChildComponent } from './InputDecorator/child.component';
 import { RegisterService } from './services/register.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BookData } from './TestData/testdata';
+
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 
 
@@ -16,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,ParentComponent,ChildComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule, InMemoryWebApiModule.forRoot(BookData)
   ],
   providers: [RegisterService],
   bootstrap: [AppComponent]
