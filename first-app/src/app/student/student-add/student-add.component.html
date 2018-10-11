@@ -1,0 +1,36 @@
+<form [formGroup]="studentRegistration" (ngSubmit)= "save(studentRegistration)">
+    <label>First Name</label>
+    <input type="text" formControlName="first_name" required minlength="5">
+    <div style="color:red" *ngIf="!first_name?.valid && (first_name?.dirty || first_name?.touched)">
+       <div [hidden] = "!first_name.errors.required">
+          first name is required
+       </div>
+       <div [hidden] ="!first_name.errors.minlength">
+        First Name minimum length is 5
+        {{first_name.errors.minlength?.requiredLength}}
+       </div>
+    </div>
+    <br/>
+    <label>Last Name</label>
+    <input type="text" formControlName="Last_name">
+    <br/>
+    <label>Email</label>
+    <input type="text" formControlName="Email">
+    <br/>
+    <label>Phone</label>
+    <input type="text" formControlName="phone">
+    <br/>
+   <div formGroupName="address">
+      <label>Street</label>
+      <input type="text" formControlName="street">
+      <br/>
+      <label>Pincode</label>
+     <input type="text" formControlName="pincode">
+     <br/>
+     <label>City</label>
+    <input type="text" formControlName="city">
+ </div>
+<input type="submit" value="submit" name="submit" [disabled]="studentRegistration.invalid">
+<!---->
+</form>
+<pre>{{studentRegistration.value | json}}</pre>

@@ -11,13 +11,14 @@ const httpOptions = {
 @Injectable()
 export class RegisterService{
      
-    bks: Observable<Book[]>
-    readonly book_URL = 'api/books';
+    bks: Observable<any[]>
+    readonly book_URL = 'http://localhost/angular5/first/test.php';
         
     constructor(private http:HttpClient){}
 
     public getBooks(): Observable<Book[]>{
-        return this.http.get<Book[]>(this.book_URL);
+        let data = this.http.get<any[]>(this.book_URL);
+        return data;
       }
 
  /*      getAllBooks() {

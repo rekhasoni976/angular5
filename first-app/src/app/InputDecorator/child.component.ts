@@ -29,9 +29,7 @@ export class ChildComponent{
     }
 
     getAllBooks() {
-        this.registerService.getBooks().subscribe(
-            data=> {this.theallbks=data;}
-        );
+        this.registerService.getBooks().subscribe(data=> {this.theallbks=data;});
     }
 
     public onClick():void{

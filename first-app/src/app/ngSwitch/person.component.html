@@ -1,0 +1,30 @@
+<h1>Example of ngSwitch</h1>
+<br/>
+<ul *ngFor = "let person of people"
+[ngSwitch] ="person.country">
+<li *ngSwitchCase ="'UK'" class="text-success">
+    {{person.name}} {{person.country}}
+</li>
+<li *ngSwitchCase ="'USA'" class="text-primary">
+    {{person.name}} {{person.country}}
+</li>
+<li *ngSwitchCase ="'India'" class="text-danger">
+    {{person.name}} {{person.country}}
+</li>
+</ul>
+<br/>
+<br/>
+<table border="2"> 
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Salary</th>
+    <th>Country</th>
+  </tr>
+ <tr *ngFor="let person of people">
+   <td>{{person.id}}</td>
+   <td>{{person.name}}</td>
+   <td>{{person.salary}}</td>
+   <td>{{person.country}}</td>
+ </tr>
+</table>

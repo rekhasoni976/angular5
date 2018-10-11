@@ -1,0 +1,59 @@
+<form #contactForm = "ngForm" (ngSubmit) ="log(contactForm)">
+  
+    <div class= "form-group">
+        <label for="firstname">First Name</label>
+        <input type="text"  name="firstname" ngModel #firstname= "ngModel" 
+         required minlength= "5">
+    </div>
+    <div style= "color: red" *ngIf= "!firstname?.valid && (firstname?.dirty || firstname?.touched)">
+        <div [hidden] ="!firstname.errors.required">
+            First Name is required
+        </div>
+        <div [hidden] ="!firstname.errors.minlength">
+                First Name minimum length is 5
+                {{firstname.errors.minlength?.requiredLength}}
+        </div>
+    </div>
+    <div class="form-group">
+            <label for="lastname">Last Name</label> 
+            <input type="text"   name="lastname" 
+            ngModel #lastname="ngModel"  required>
+    </div>
+     
+     <div ngModelGroup ="address">
+            <label for="city">City</label>
+            <input type="text" class="form-control"   
+            name="city" ngModel #city="ngModel" required>
+            <div style="color: red" *ngIf="!city?.valid && (city?.dirty ||city?.touched)">
+                <div [hidden] ="!city.errors">
+                    City name is required
+                </div>
+            </div>
+     </div>
+     <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" class="form-control"  name="street" ngModel #street="ngModel" >
+     </div>
+
+     <div class="form-group">
+         <label for="pincode">Pin code</label>
+         <input type="text" class="form-control"
+         name="pincode" ngModel #pincode="ngModel" 
+         required pattern= "[0-9] {6}">
+     </div>
+     <div style="color:red" *ngIf ="!pincode?.valid && (pincode?.dirty ||pincode?.touched)" >
+       <div [hidden] ="!pincode.errors">
+           Enter a valid pattern as : 5 digits only
+
+       </div>
+     </div>
+
+     <div class="form-group">
+            <button type="submit"
+            [disabled] ="!contactForm.valid">Submit</button>
+        </div>
+
+
+</form>
+
+<pre>{{contactForm.value | json}}</pre>

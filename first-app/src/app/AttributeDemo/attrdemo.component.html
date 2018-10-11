@@ -1,0 +1,27 @@
+<!-- this property syntax for style -->
+<div [style.color] ="'orange'">
+style using property syntax this text in orange
+</div>
+
+<!-- Using component variables -->
+<div [ngStyle] ="{'color':color,'font-size':size,'font-weight':bold}">
+{{msg}}
+</div>
+
+<!-- this property syntax for css class -->
+<div [className]="'blue'">
+this text in blue
+</div>
+
+<div [className]="'style1'">
+        style applied using class name
+</div>
+
+<!-- this property syntax for ng-class -->
+<div [ngClass]="['bold-text','green']">Array of class using ng class</div>
+<div [ngClass]="'bold-text blue'">string of classes</div>
+<div [ngClass]="{'small-text': true, 'red': true}">object of classes </div>
+
+<span [ngClass]="displayText"></span>
+
+
