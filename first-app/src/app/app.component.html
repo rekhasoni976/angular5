@@ -2,7 +2,7 @@
 <app-switch></app-switch>
 <attr-demo></attr-demo>
 
-<h1>Routing Demo</h1>
+<!-- <h1>Routing Demo</h1>
 
 <ul>
     <li><a routerLink="">Home</a></li>
@@ -12,9 +12,32 @@
     <li><a routerLink="student/add">student Add</a></li>
     <li><a routerLink="**">NotFound</a></li>
 </ul>
-<router-outlet></router-outlet>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+    <ul>
+        <li>
+            <a routerLink="/merchant" rouetrLinkActive="active">merchant</a>
+        </li> 
+        <li>
+             <a routerLink="/admin" rouetrLinkActive="active">Admin</a>
+        </li>
+    </ul>
+
+ 
 <!-- <app-student-add></app-student-add> -->
 <app-validForm></app-validForm>
+<!--
+<ul>
+    <li>
+        <a routerLink="/company" rouetrLinkActive="active">Company</a>
+    </li> 
+    <li>
+        <a routerLink="/employee" rouetrLinkActive="active">Employee</a>
+    </li>
+</ul>-->
 
+<div>
+    <router-outlet></router-outlet>
+</div>
+ 
 
