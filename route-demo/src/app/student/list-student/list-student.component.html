@@ -1,0 +1,23 @@
+<h3>
+  list-student works!
+</h3>
+<ul>
+  <li>
+    <a routerLink="add-student">Add Student</a>
+  </li>
+</ul>
+<table>
+  <tr>
+    <td>Id</td>
+    <td>Name</td>
+    <td>address</td>
+    <td>Actions</td>
+  </tr>
+  <tr *ngFor="let st of students">
+    <td>{{st.id}}</td>
+    <td>{{st.name}}</td>
+    <td>{{st.address}}</td>
+    <td><a [routerLink]="['student-detail',st.id]">Detail</a></td>
+  </tr>
+</table>
+<router-outlet></router-outlet>

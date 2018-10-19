@@ -5,13 +5,23 @@ import { TeacherComponent } from './app/teacher/teacher.component';
 import { LiberaryComponent } from './app/liberary/liberary.component';
 
 import { PermissionGuard } from './app/gaurd/permission.guard';
+import { DeactivateGaurdGuard } from './app/gaurd/deactivate-gaurd.guard';
+import { AddStudentComponent } from './app/student/add-student/add-student.component';
+import { ListStudentComponent } from './app/student/list-student/list-student.component';
+import { ActivateChildGaurdGuard } from './app/gaurd/activate-child-gaurd.guard';
+import { StudentDetailComponent } from './app/student/student-detail/student-detail.component';
 
 
 export const routing= RouterModule.forRoot([
     {path: '', component: StudentComponent},
-    {path:'student',component:StudentComponent},
+    {path:'student',component:ListStudentComponent,canActivateChild:[ActivateChildGaurdGuard],
+        children:[
+            {path: 'add-student', component: AddStudentComponent},
+            {path: 'student-detail/:id', component: StudentDetailComponent}
+        ]
+    },
     {path:'parents',component:ParentsComponent, canActivate:[PermissionGuard]},
-    {path:'teachers',component:TeacherComponent},
+    {path:'teachers',component:TeacherComponent, canDeactivate:[DeactivateGaurdGuard]},
     {path:'liberary',component:LiberaryComponent},
 
 ]);
