@@ -14,6 +14,9 @@ import { AddStudentComponent } from './student/add-student/add-student.component
 import { ListStudentComponent } from './student/list-student/list-student.component';
 import { ActivateChildGaurdGuard } from './gaurd/activate-child-gaurd.guard';
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
+import { CountryListComponent } from './countries/country-list/country-list.component';
+import { CountryDetailComponent } from './country-detail/country-detail.component';
+import { countryResolver } from './resolver/contry.resolver';
 
 
 @NgModule({
@@ -25,13 +28,15 @@ import { StudentDetailComponent } from './student/student-detail/student-detail.
     LiberaryComponent,
     AddStudentComponent,
     ListStudentComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    CountryListComponent,
+    CountryDetailComponent
   ],
   imports: [
     BrowserModule,
     routing,
   ],
-  providers: [UserService, PermissionGuard, DeactivateGaurdGuard, ActivateChildGaurdGuard],
+  providers: [UserService, PermissionGuard, DeactivateGaurdGuard, ActivateChildGaurdGuard, countryResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,9 +16,17 @@ export class StudentDetailComponent implements OnInit {
   }
  
   ngOnInit() {
-    this.route.paramMap.subscribe(params=>{
-      this.userService.getStudent(parseInt(params.get('id'))).subscribe(student=>this.student=student);
+
+  //this.userService.getStudent(parseInt(this.route.snapshot.params.id)).subscribe(student=>this.student=student);
+
+    //this.userService.getStudent(parseInt(this.route.snapshot.paramMap.get('id'))).subscribe(student=>this.student=student);
+    this.route.params.subscribe(params=>{
+      this.userService.getStudent(parseInt(params.id)).subscribe(student=>this.student=student);
     })
+
+    /* this.route.paramMap.subscribe(params=>{
+      this.userService.getStudent(parseInt(params.get('id'))).subscribe(student=>this.student=student);
+    }) */
     
   }
 

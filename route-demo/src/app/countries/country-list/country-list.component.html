@@ -1,0 +1,13 @@
+<h1>
+  country list
+</h1>
+<table>
+  <tr *ngFor="let country of countries">
+    <td>{{country.id}}</td>
+    <td>{{country.name}}</td>
+    <td>{{country.capital}}</td>
+    <td><a [routerLink]="['detail',country.id]">Detail</a></td>
+  </tr>
+</table>
+
+<router-outlet></router-outlet>
