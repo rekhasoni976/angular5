@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentsComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    console.log(sessionStorage.getItem('name'));
+    console.log(localStorage.getItem('colleage'));
+
+    sessionStorage.setItem('name','Pushkar');
+    localStorage.setItem('colleage','ITM Bhilwara');
+
+    console.log(sessionStorage.getItem('name'));
+    console.log(localStorage.getItem('colleage'));
+  }
 
   ngOnInit() {
   }

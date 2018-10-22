@@ -6,8 +6,8 @@
     <td>{{country.id}}</td>
     <td>{{country.name}}</td>
     <td>{{country.capital}}</td>
-    <td><a [routerLink]="['detail',country.id]">Detail</a></td>
+    <td><a [routerLink]="[{outlets:{detail:['detail',country.id]}}]">Detail</a></td>
   </tr>
 </table>
 
-<router-outlet></router-outlet>
+<router-outlet name="detail"></router-outlet>
